@@ -121,13 +121,6 @@ module.exports = {
       
       await userDestination.increment({ balance: amount })
 
-      await userOrigin.createOperation({ 
-        type: "Expense", 
-        amount, 
-        concept, 
-        fromTo: userDestination.name
-      })
-
       await userOrigin.decrement({ balance: amount })
 
       return res.status(200).json({
